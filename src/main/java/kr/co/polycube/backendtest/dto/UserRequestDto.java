@@ -1,4 +1,4 @@
-package kr.co.polycube.backendtest.Dto;
+package kr.co.polycube.backendtest.dto;
 
 import lombok.Data;
 

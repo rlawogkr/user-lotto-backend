@@ -1,7 +1,7 @@
 package kr.co.polycube.backendtest.service;
 
-import kr.co.polycube.backendtest.Dto.UserRequestDto;
-import kr.co.polycube.backendtest.Dto.UserResponseDto;
+import kr.co.polycube.backendtest.dto.UserRequestDto;
+import kr.co.polycube.backendtest.dto.UserResponseDto;
 import kr.co.polycube.backendtest.entity.Users;
 import kr.co.polycube.backendtest.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

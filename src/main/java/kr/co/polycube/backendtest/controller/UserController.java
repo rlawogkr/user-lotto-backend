@@ -1,7 +1,7 @@
 package kr.co.polycube.backendtest.controller;
 
-import kr.co.polycube.backendtest.Dto.UserRequestDto;
-import kr.co.polycube.backendtest.Dto.UserResponseDto;
+import kr.co.polycube.backendtest.dto.UserRequestDto;
+import kr.co.polycube.backendtest.dto.UserResponseDto;
 import kr.co.polycube.backendtest.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
