@@ -27,6 +27,8 @@ class BackendTestApplicationTests {
 
     private Long testUserId;
 
+
+
     @BeforeEach
     public void setup() {
         // 테스트 시작 전에 사용자 생성
@@ -80,4 +82,6 @@ class BackendTestApplicationTests {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest());
     }
+
+
 }
