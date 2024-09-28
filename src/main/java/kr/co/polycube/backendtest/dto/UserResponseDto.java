@@ -1,8 +1,7 @@
-package kr.co.polycube.backendtest.Dto;
+package kr.co.polycube.backendtest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor

@@ -12,14 +12,24 @@ import java.io.IOException;
 public class CharacterFilter implements Filter {
     // 2.2 TODO: 쿼리스트링에 특수문자가 포함되어 있을 경우, 접속을 제한
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest; // HttpServletRequest로 캐스팅
-        String queryString = httpServletRequest.getQueryString(); // 쿼리스트링 추출
-        if (queryString != null && queryString.matches(".*[\\$#@!%^&*()].*")) {
-            ((HttpServletResponse) servletResponse).sendError(HttpServletResponse.SC_BAD_REQUEST,
-                    "? & = : //를 제외한 특수문자가 포함되어 있을경우 접속을 제한합니다.");
+    public void init(FilterConfig filterConfig) throws ServletException {}
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        String queryString = httpRequest.getQueryString();
+
+        // 허용된 특수문자: ? & = : //
+        if (queryString != null && queryString.matches(".*[^\\w\\?&=://].*")) {
+            ((HttpServletResponse) response).sendError(HttpServletResponse.SC_BAD_REQUEST, "특수문자가 포함된 요청은 허용되지 않습니다.");
             return;
         }
-        filterChain.doFilter(servletRequest, servletResponse);
+
+        chain.doFilter(request, response);
     }
+
+    @Override
+    public void destroy() {}
 }
